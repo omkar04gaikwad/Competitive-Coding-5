@@ -20,11 +20,11 @@ class Solution:
         if not root:
             return []
         result = []
-        max_level = float('-inf')
         queue = deque()
         queue.append(root)
         
         while queue:
+            max_level = float('-inf')
             for i in range(len(queue)):
                 curr = queue.popleft()
                 max_level = max(max_level, curr.val)
@@ -33,6 +33,7 @@ class Solution:
                 if curr.right:
                     queue.append(curr.right)
             result.append(max_level)
+            max_level = float('-inf')
         return result
     
     def main(self):
